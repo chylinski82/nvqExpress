@@ -1,0 +1,184 @@
+:root {
+  --light-background-color: #ebf4f7;
+  --light-font-color: #20055f;
+  --light-link-color: #007bff;
+  --light-hover-color: #da0404;
+  --light-active-color: #004085;
+  --light-slide-out-bg-color: #e4e1e1;
+
+  --dark-background-color: #20055f;
+  --dark-font-color: #ebf4f7;
+  --dark-link-color: #38b6ff;
+  --dark-hover-color: #fa4141;
+  --dark-active-color: #0c7bd5;
+  --dark-slide-out-bg-color: #575757;
+}
+
+body.light-theme {
+  background-color: var(--light-background-color);
+  color: var(--light-font-color);
+}
+
+body.light-theme a {
+  color: var(--light-link-color);
+}
+
+body.light-theme a:hover {
+  color: var(--light-hover-color);
+}
+
+body.light-theme a:active {
+  color: var(--light-active-color);
+}
+
+body.light-theme .slide-out {
+  background-color: var(--light-slide-out-bg-color);
+}
+
+body.dark-theme {
+  background-color: var(--dark-background-color);
+  color: var(--dark-font-color);
+}
+
+body.dark-theme a {
+  color: var(--dark-link-color);
+}
+
+body.dark-theme a:hover {
+  color: var(--dark-hover-color);
+}
+
+body.dark-theme a:active {
+  color: var(--dark-active-color);
+}
+
+body.dark-theme .slide-out {
+  background-color: var(--dark-slide-out-bg-color);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 0 1rem;
+  font-family: 'Ubuntu Mono', 'Roboto Mono', monospace;
+  position: relative;  /* To allow navbar position absolute */
+}
+
+.navbar,
+.menuButton,
+h1,
+.footer {
+  font-family: 'Orbitron', 'Russo One', sans-serif;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--font-color); 
+}
+
+.navbar {
+  position: fixed;
+  width: 250px;
+  top: 40px;
+  right: 0;
+  transform: translateX(100%);
+  transition: transform 0.2s ease-out;
+  z-index: 9999;
+  padding: 20px;
+  height: auto;
+}
+
+.navbar.open {
+  transform: translateX(0);
+}
+
+.menuButton {
+  position: fixed;
+  top: 10px;
+  right: 10px; 
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: 1.2em;
+  z-index: 9999;
+}
+
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar li {
+  margin: 0.5rem 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer {
+  width: 100%;
+  /* Add more styles for your footer here */
+}
+
+.content {
+  width: 100%;
+  max-width: 800px;
+}
+
+.hero {
+  width: 100%;
+}
+
+.hero img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1 {
+  margin-top: 40px;
+}
+
+/* Media query for larger than mobile screen sizes (for example 600px). Adjust as needed. */
+@media (min-width: 600px) {
+  .App {
+    padding: 0; /* Remove the horizontal padding on larger screens */
+  }
+
+  .content {
+    width: 90%;
+  }
+
+  .navbar ul {
+    flex-direction: row;
+    justify-content: space-around;
+    position: static;
+    align-items: center;
+  }
+
+  .menuButton {
+    display: none;
+  }
+  
+  .navbar {
+    position: static;
+    width: 100%;  
+    height: auto;  
+    transform: none;
+    background-color: transparent;  
+  }
+}

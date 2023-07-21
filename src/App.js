@@ -3,7 +3,7 @@ import './App.css';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import ThemeToggle from './ThemeToggle';  
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import HomePage from './HomePage';
 import TCO from './TCO';
@@ -21,7 +21,6 @@ function App() {
   // If we are in a browser, get the 'theme' item from localStorage. If it doesn't exist, default to 'light'.
   // If we are not in a browser, simply default to 'light'.
   const [theme, setTheme] = useState(typeof localStorage !== 'undefined' ? localStorage.getItem('theme') || 'light' : 'light'); //  Manage theme state
-  const location = useLocation();
 
   const checkScreenSize = () => {
     // Checks if the window object is defined before using it.
@@ -40,17 +39,6 @@ function App() {
     document.body.className = ''; // Clear existing classes
     document.body.classList.add(`${theme}-theme`); // Add the current theme class
   }, [theme]); // Run this effect whenever theme changes
-
-  useEffect(() => {
-    if (location.pathname === "/") {
-      document.title = "NVQ Slinger Signaller - Home";
-    } else if (location.pathname === "/slinger") {
-      document.title = "NVQ Slinger Signaller - Slinger Blue Card";
-    } else if (location.pathname === "/TCO") {
-      document.title = "NVQ Tower Crane Operator";
-    }
-    // Add more else if conditions for other routes as needed
-  }, [location]);
 
   const handleNav = (state) => {
     setIsNavOpen(state);

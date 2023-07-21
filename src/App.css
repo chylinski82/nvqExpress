@@ -80,7 +80,7 @@ h1,
   left: 0;
   padding: 10px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 11px;
   color: var(--font-color); 
 }
 
@@ -163,17 +163,6 @@ h1 {
     width: 90%;
   }
 
-  .navbar ul {
-    flex-direction: row;
-    justify-content: space-around;
-    position: static;
-    align-items: center;
-  }
-
-  .menuButton {
-    display: none;
-  }
-  
   .navbar {
     position: static;
     width: 100%;  
@@ -181,4 +170,20 @@ h1 {
     transform: none;
     background-color: transparent;  
   }
+
+  .navbar ul {
+    flex-direction: row;
+    justify-content: space-around;
+    position: static;
+    align-items: center;
+  }
+
+  .theme-toggle {
+    top: 70px; /* adjust the value according to your navbar height, the 'calc' function is used to accurately place the button just below the navbar */
+  }
+
+  .menuButton {
+    display: none;
+  }
+  
 }
